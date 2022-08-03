@@ -1,4 +1,4 @@
-package com.elmorshdi.technicaltask
+package com.elmorshdi.technicaltask.view.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.Toast
 import androidx.navigation.fragment.NavHostFragment
+import com.elmorshdi.technicaltask.R
 
 class MainActivity : AppCompatActivity() {
     private var doubleBackToExitPressedOnce: Boolean = false

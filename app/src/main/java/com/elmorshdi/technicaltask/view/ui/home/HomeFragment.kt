@@ -13,6 +13,7 @@ import com.elmorshdi.technicaltask.data.model.Product
 import com.elmorshdi.technicaltask.databinding.FragmentHomeBinding
 import com.elmorshdi.technicaltask.view.ui.adapter.ProductAdapter
 import com.elmorshdi.technicaltask.view.util.Status
+import com.elmorshdi.technicaltask.view.util.showDialog
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -82,6 +83,10 @@ class HomeFragment : Fragment(),ProductAdapter.Interaction {
     }
 
     override fun onItemSelected(product: Product) {
-        TODO("Not yet implemented")
+
+        showDialog(product,
+        requireContext(),
+        layoutInflater)
+
     }
 }

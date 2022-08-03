@@ -1,4 +1,4 @@
-package com.elmorshdi.technicaltask.view.ui.adapter
+package com.elmorshdi.technicaltask.view.adapter
 
 import android.view.LayoutInflater
 import android.view.View

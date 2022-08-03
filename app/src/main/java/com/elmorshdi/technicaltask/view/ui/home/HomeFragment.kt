@@ -1,5 +1,6 @@
 package com.elmorshdi.technicaltask.view.ui.home
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,19 +10,24 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.findNavController
 import com.elmorshdi.technicaltask.data.model.Product
 import com.elmorshdi.technicaltask.databinding.FragmentHomeBinding
-import com.elmorshdi.technicaltask.view.ui.adapter.ProductAdapter
+import com.elmorshdi.technicaltask.view.adapter.ProductAdapter
+import com.elmorshdi.technicaltask.view.util.SharedPreferencesManager
 import com.elmorshdi.technicaltask.view.util.Status
+import com.elmorshdi.technicaltask.view.util.alertDialog
 import com.elmorshdi.technicaltask.view.util.showDialog
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 
 class HomeFragment : Fragment(),ProductAdapter.Interaction {
     private val viewModel: HomeViewModel by viewModels()
     private lateinit var binding: FragmentHomeBinding
-
+    @Inject
+    lateinit var sharedPreferences: SharedPreferences
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -46,6 +52,19 @@ class HomeFragment : Fragment(),ProductAdapter.Interaction {
                     else -> UInt
                 }
             }}
+        binding.signOutArrow.setOnClickListener {
+            alertDialog(
+                "sign Out", "Are you sure you want to sign out ?",
+                it.context, ::signOut, it
+            )
+
+         }
+    }
+
+    private fun signOut(view: View) {
+        SharedPreferencesManager.signOutShared(sharedPreferences.edit())
+        val action = HomeFragmentDirections.actionHomeFragmentToLoginFragment()
+        view.findNavController().navigate(action)
     }
 
     private fun progressbarVisible(b: Boolean) {

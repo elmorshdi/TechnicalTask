@@ -7,6 +7,7 @@ import android.os.Looper
 import android.widget.Toast
 import androidx.navigation.fragment.NavHostFragment
 import com.elmorshdi.technicaltask.R
+import com.elmorshdi.technicaltask.view.util.toast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -25,14 +26,12 @@ class MainActivity : AppCompatActivity() {
     }
     override fun onBackPressed() {
         if (doubleBackToExitPressedOnce) {
-
-            super.onBackPressed()
+            this.finish()
             return
         }
 
         this.doubleBackToExitPressedOnce = true
-        Toast.makeText(this, " Please click BACK again to exit ", Toast.LENGTH_SHORT).show()
-
+        this.toast(" Please click BACK again to exit ")
         Handler(Looper.getMainLooper()).postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
 
 

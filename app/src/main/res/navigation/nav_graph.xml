@@ -3,11 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.elmorshdi.technicaltask.loginFragment"
+        android:name="com.elmorshdi.technicaltask.view.ui.login.LoginFragment"
         android:label="loginFragment"
         tools:layout="@layout/fragment_login"/>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.elmorshdi.technicaltask.view.ui.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home"/>
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.elmorshdi.technicaltask.view.ui.splash.SplashFragment"
+        android:label="SplashFragment"
+        tools:layout="@layout/fragment_splash"/>
+
 </navigation>

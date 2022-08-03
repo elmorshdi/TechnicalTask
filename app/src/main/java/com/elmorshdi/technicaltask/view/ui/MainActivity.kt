@@ -7,6 +7,9 @@ import android.os.Looper
 import android.widget.Toast
 import androidx.navigation.fragment.NavHostFragment
 import com.elmorshdi.technicaltask.R
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
 
 class MainActivity : AppCompatActivity() {
     private var doubleBackToExitPressedOnce: Boolean = false

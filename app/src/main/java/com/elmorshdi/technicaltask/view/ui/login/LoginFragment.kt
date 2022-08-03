@@ -1,4 +1,4 @@
-package com.elmorshdi.technicaltask.view.ui.fragment
+package com.elmorshdi.technicaltask.view.ui.login
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

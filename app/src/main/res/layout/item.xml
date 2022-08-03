@@ -6,6 +6,10 @@
 
         <import type="android.view.View" />
 
+        <variable
+            name="product"
+            type="com.elmorshdi.technicaltask.data.model.Product" />
+
 
     </data>
 
@@ -23,53 +27,49 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/container"
-            android:padding="@dimen/_8sdp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:padding="@dimen/_8sdp">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/item_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                 android:layout_marginEnd="@dimen/_6sdp"
+                android:layout_marginEnd="@dimen/_6sdp"
                 android:layout_marginBottom="@dimen/_8sdp"
                 android:singleLine="true"
-                android:text="@string/name"
+                android:text="dfghj"
                 android:textColor="@color/blue"
                 android:textSize="@dimen/_10ssp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/item_price"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="22222"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_10ssp"
-                    android:textStyle="bold"
-                    app:layout_constraintTop_toTopOf="@id/item_name"
-                    app:layout_constraintEnd_toEndOf="parent"/>
-
-
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="sdfghj"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/item_name" />
 
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/item_quantity"
+                android:id="@+id/item_description"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                 android:textAlignment="viewStart"
+                android:text="sdfghjk"
+                android:textAlignment="inherit"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_10ssp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/item_name"
-                android:text="3333" />
+                app:layout_constraintTop_toBottomOf="@id/item_name" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>

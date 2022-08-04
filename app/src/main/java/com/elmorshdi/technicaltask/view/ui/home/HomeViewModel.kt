@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.elmorshdi.technicaltask.core.repository.Repository
 import com.elmorshdi.technicaltask.data.model.Product
+import com.elmorshdi.technicaltask.data.repository.MainRepository
 import com.elmorshdi.technicaltask.view.util.Status
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -16,7 +17,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val repository: Repository
+    private val repository: MainRepository
 ) : ViewModel() {
     val mainUiState: StateFlow<Status>
         get() = _mainUiState
@@ -31,7 +32,7 @@ class HomeViewModel @Inject constructor(
     private val _error: MutableLiveData<String> = MutableLiveData()
 
 
-    private fun getProductsList() {
+     fun getProductsList() {
         viewModelScope.launch(Dispatchers.Main) {
             _mainUiState.value = Status.LOADING
             val response = repository.getProducts()

@@ -16,5 +16,6 @@
     <string name="enter_valid_number"> Enter Valid Number </string>
      <string name="develop_network_task">Develop Network Task</string>
     <string name="Invalid_password">"Must be more than 8 char "</string>
+    <string name="sign_out">Sign Out</string>
 
 </resources>

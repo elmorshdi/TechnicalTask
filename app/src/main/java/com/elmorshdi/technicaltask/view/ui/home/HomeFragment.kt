@@ -14,10 +14,7 @@ import androidx.navigation.findNavController
 import com.elmorshdi.technicaltask.data.model.Product
 import com.elmorshdi.technicaltask.databinding.FragmentHomeBinding
 import com.elmorshdi.technicaltask.view.adapter.ProductAdapter
-import com.elmorshdi.technicaltask.view.util.SharedPreferencesManager
-import com.elmorshdi.technicaltask.view.util.Status
-import com.elmorshdi.technicaltask.view.util.alertDialog
-import com.elmorshdi.technicaltask.view.util.showDialog
+import com.elmorshdi.technicaltask.view.util.*
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -44,7 +41,7 @@ class HomeFragment : Fragment(),ProductAdapter.Interaction {
                     }
                     is Status.SUCCESS -> {
                        recyclerVisible(true)
-                        viewModel.products.observe(viewLifecycleOwner){
+                        viewModel.products.observeOnce(viewLifecycleOwner){
                             setUpRecyclerView(it)
 
                         }
@@ -96,8 +93,6 @@ class HomeFragment : Fragment(),ProductAdapter.Interaction {
     private fun setUpRecyclerView(value: List<Product>?) {
          val adapter = ProductAdapter(interaction = this)
         adapter.submitList(value)
-        Log.d("listttt",value.toString())
-
         binding.mainRecycler.adapter = adapter
     }
 

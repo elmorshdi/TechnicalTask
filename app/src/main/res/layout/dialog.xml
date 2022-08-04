@@ -13,47 +13,32 @@
 
     </data>
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/item_card"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_20sdp"
-        android:background="@color/gray"
-        android:elevation="@dimen/_18sdp"
-        android:padding="@dimen/_8sdp"
-        android:translationZ="@dimen/_8sdp"
-        app:cardCornerRadius="@dimen/_12sdp"
-        app:rippleColor="@color/blue_dark">
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/container"
+            android:padding="@dimen/_20sdp"
             android:layout_width="match_parent"
+            android:background="@drawable/round_bc"
+
             android:layout_height="match_parent">
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_8sdp"
-                android:elevation="@dimen/_18sdp"
-                android:shadowColor="@color/yellow"
-                android:translationZ="@dimen/_18sdp"
-                app:cardCornerRadius="@dimen/_125sdp"
-                app:cardPreventCornerOverlap="false"
-                app:layout_constraintBottom_toTopOf="@id/item_name"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+
 
                 <ImageView
                     android:id="@+id/item_image"
-                     android:layout_width="@dimen/_250sdp"
-                    android:layout_height="@dimen/_250sdp"
-                    loadImageUrl="@{product.images[0]}"
+                     android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_150sdp"
+                    loadImageUrl="@{product.thumbnail}"
+                    android:layout_margin="@dimen/_8sdp"
+                    android:background="@drawable/round_bc"
                     android:contentDescription="@string/item_name"
                     android:src="@drawable/ic_launcher_background"
-                    android:transitionName="imageView" />
-            </com.google.android.material.card.MaterialCardView>
+                    android:transitionName="imageView"
+                    app:layout_constraintBottom_toTopOf="@id/item_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/item_name"
@@ -65,10 +50,10 @@
                 android:singleLine="true"
                 android:text="@{product.title}"
                 android:textColor="@color/blue"
-                android:textSize="@dimen/_10ssp"
+                android:textSize="@dimen/_16ssp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cardView" />
+                app:layout_constraintTop_toBottomOf="@id/item_image" />
 
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -76,16 +61,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/_2sdp"
-                     android:textAlignment="textEnd"
+                     android:textAlignment="viewStart"
                     setPrice="@{product.price.toString()}"
                     android:textColor="@color/black"
                     android:transitionName="priceText"
                     android:layout_marginStart="@dimen/_8sdp"
                      android:layout_marginBottom="@dimen/_4sdp"
-                    android:textSize="@dimen/_10ssp"
+                    android:textSize="@dimen/_16ssp"
                     android:textStyle="bold"
-                     app:layout_constraintEnd_toEndOf="parent"
-                     app:layout_constraintTop_toTopOf="@id/item_name"/>
+                     app:layout_constraintStart_toStartOf="parent"
+                     app:layout_constraintTop_toBottomOf="@id/item_name"/>
 
 
 
@@ -98,14 +83,12 @@
                 android:layout_marginBottom="@dimen/_6sdp"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_10ssp"
+                android:textSize="@dimen/_12ssp"
                 android:text="@{product.description}"
-                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/item_name"
+                app:layout_constraintTop_toBottomOf="@id/item_price"
                  />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </com.google.android.material.card.MaterialCardView>
 </layout>
